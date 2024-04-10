@@ -2,7 +2,7 @@ name: Deploy to AWS Testing Env
 
 on:
   push:
-    branches: [ QA ]
+    branches: [ dev ]
 
 jobs:
   build:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-            ref: 'QA'
+            ref: 'dev'
 
       # Setup NodeJS in our environment
       - name: Setup Node.js environment
@@ -31,7 +31,7 @@ jobs:
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_PITRIBE_TEST_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_TEST_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: us-east-1
@@ -41,7 +41,7 @@ jobs:
       - name: Invalidate Cloudfront
         uses: chetan/invalidate-cloudfront-action@v2
         env:
-          DISTRIBUTION: ${{ secrets.AWS_PITRIBE_TEST_DISTRIBUTION_ID }}
+          DISTRIBUTION: ${{ secrets.AWS_TEST_DISTRIBUTION_ID }}
           PATHS: '/*'
           AWS_REGION: us-east-1
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

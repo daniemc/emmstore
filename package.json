@@ -7,11 +7,22 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "APP_ENV=testing nuxt generate",
+    "prod": "APP_ENV=production nuxt generate"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^6.11.1",
     "nuxt": "^3.9.3",
+    "nuxt-primevue": "^0.2.2",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "pinia": "^2.1.7",
+    "primevue": "^3.47.2",
+    "dayjs": "^1.11.7",
+    "jwt-decode": "^3.1.2"
   }
 }
