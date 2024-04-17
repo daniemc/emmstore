@@ -1,6 +1,6 @@
 const configKeys = {
     development: {
-        apiBase: '',
+        apiBase: 'http://localhost/api',
     },
     integration: {
         apiBase: '',

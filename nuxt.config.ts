@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   target: 'static',
   ssr: false,
   modules: [
-    'nuxt-primevue',
     '@nuxtjs/tailwindcss',
     [
       '@pinia/nuxt',
@@ -13,6 +12,10 @@ export default defineNuxtConfig({
           autoImports: ['defineStore']
       }
     ]
+  ],
+  css: [
+    'boxicons/css/boxicons.min.css', 
+    'assets/css/custom.css'
   ],
   imports: {
     dirs: ['stores', 'composables']
@@ -23,7 +26,4 @@ export default defineNuxtConfig({
           apiBase: configKeys[appEnv].apiBase
       }
   },
-  primevue: {
-    unstyled: true,
-  }
 })
