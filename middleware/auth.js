@@ -3,7 +3,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     if (!AuthStore.authenticated) {
         const tokenValid = AuthStore.tokenStillValid()
         if (!tokenValid) {
-            navigateTo('/login')
+            return navigateTo('/login')            
         }
     }
 })

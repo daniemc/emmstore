@@ -16,6 +16,7 @@
     "boxicons": "^2.1.4",
     "daisyui": "^4.10.2",
     "nuxt": "^3.9.3",
+    "sass": "^1.75.0",
     "tailwindcss-animated": "^1.0.1",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
