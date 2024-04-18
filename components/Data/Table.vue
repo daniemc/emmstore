@@ -5,26 +5,26 @@
                 <th 
                 v-for="(header, index) in headers"
                 :key="`header-${index}-${header}`"
-                class="border border-strokeGrey p-2"
+                class="border border-gray-300 p-2"
                 > 
                     {{ fields[header].text }} 
                 </th>
-                <th v-if="showActionsHeader" class="border border-strokeGrey p-2">Acciones</th>
+                <th v-if="showActionsHeader" class="border border-gray-300 p-2">Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr
             v-for="(item, index) in data"
             :key="`row-${index}-${header}`"
-            class="even:bg-strokeGrey cursor-pointer hover:bg-gray-300"
+            class="even:bg-gray-200 cursor-pointer hover:bg-gray-300"
             >
                 <td 
                     v-for="(header, index) in headers"
-                    class="border border-strokeGrey p-2"
+                    class="border border-gray-300 p-2"
                 >
                     {{ item[header] }}
                 </td>
-                <td>
+                <td class="border border-gray-300 p-2">
                     <div 
                     v-if="showActionsHeader"
                     class="flex justify-center gap-4"

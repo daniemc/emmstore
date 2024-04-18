@@ -2,11 +2,8 @@ const configKeys = {
     development: {
         apiBase: 'http://localhost/api',
     },
-    integration: {
-        apiBase: '',
-    },
     testing: {
-        apiBase: '',
+        apiBase: 'http://store-env.eba-p8bqhvfv.us-east-1.elasticbeanstalk.com/api',
     },
     production: {
         apiBase: '',
