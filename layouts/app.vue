@@ -83,6 +83,11 @@ const menu = ref([
         url: '/movements_types',
         show: true,
     },
+    {
+        text: 'Tiendas',
+        url: '/stores',
+        show: true,
+    },
 ])
 </script>
 
