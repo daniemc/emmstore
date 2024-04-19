@@ -45,12 +45,6 @@ const fields = {
         editable: true,
         type: 'string'
     },
-    barrcode: {
-        text: 'Codigo de barras',
-        create: true,
-        editable: true,
-        type: 'string'
-    },
     active: {
         text: 'Activo',
         create: true,

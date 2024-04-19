@@ -3,18 +3,20 @@
         <div
             v-for="(header, index) in headers"
             :key="`form-control-${name.singular}-${header}`"
-            class="flex"
+            class="flex flex-col gap-1"
         >
+            <Text v-if="editing && fields[header].type !== 'boolean'">{{ fields[header].text }}</Text>
             <InputText 
             v-if="fields[header].type === 'string'"
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
-            <InputCheck 
-            v-if="fields[header].type === 'boolean'"
-            :placeholder="`${fields[header].text}`"
-            v-model="formData[header]"
-            />
+            <div class="flex" v-if="fields[header].type === 'boolean'">
+                <InputCheck 
+                :placeholder="`${fields[header].text}`"
+                v-model="formData[header]"
+                />
+            </div>
             <InputSelect 
             v-if="fields[header].type === 'model'"
             :placeholder="`${fields[header].text}`"
@@ -92,7 +94,6 @@ async function fetchDataModel(fieldKey, model) {
         model.listURL
     )
     if (!hasError) {
-        console.log({fieldKey}, data.data)
         lists.value[fieldKey] = data.data.map((_) => ({
             value: _[model.value],
             text: _[model.text],

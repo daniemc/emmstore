@@ -1,13 +1,12 @@
 <template>
     <label class="label flex gap-2">
-        <span class="label-text">
+        <Text>
             {{ placeholder }}
-        </span>
+        </Text>
         <input 
         type="checkbox" 
         class="checkbox" 
         :name="name" 
-        :placeholder="placeholder"
         :id="id"
         :checked="modelValue"
         @input="(event) => emit('update:modelValue', event.target.checked)"
