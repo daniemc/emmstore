@@ -78,6 +78,11 @@ const menu = ref([
         url: '/products_variants',
         show: true,
     },
+    {
+        text: 'Tipos de movimientos',
+        url: '/movements_types',
+        show: true,
+    },
 ])
 </script>
 
