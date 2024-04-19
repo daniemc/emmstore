@@ -22,7 +22,12 @@
                     v-for="(header, index) in headers"
                     class="border border-gray-300 p-2"
                 >
-                    {{ item[header] }}
+                    <Text v-if="fields[header].type === 'object'">
+                        {{ item[header][fields[header].ObjectKey] }}
+                    </Text>
+                    <Text v-else>
+                        {{ item[header] }}
+                    </Text>
                 </td>
                 <td class="border border-gray-300 p-2">
                     <div 

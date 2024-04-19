@@ -15,6 +15,12 @@
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
+            <InputSelect 
+            v-if="fields[header].type === 'model'"
+            :placeholder="`${fields[header].text}`"
+            v-model="formData[header]"
+            :options="lists[header]"
+            />
         </div>
         <Divider />
         <div class="grid grid-cols-2 gap-2">
@@ -78,15 +84,54 @@ const editionHeaders = computed(() => {
 })
 
 const formData = ref({})
+const lists = ref({})
+
+async function fetchDataModel(fieldKey, model) {
+    const { hasError, data } = await useApi(
+        'GET',
+        model.listURL
+    )
+    if (!hasError) {
+        console.log({fieldKey}, data.data)
+        lists.value[fieldKey] = data.data.map((_) => ({
+            value: _[model.value],
+            text: _[model.text],
+        }))
+    }
+}
 
 function setData() {
     formData.value = {}
-    if (props.editing) {
-        const newFormData = {}
-        Object.keys(props.fields)
-            .forEach((key) => newFormData[key] = props.data[key])
-        formData.value = newFormData
-    }
+    const newFormData = {}
+    Object.keys(props.fields)
+        .forEach((key) => {
+            if (props.editing) {
+                newFormData[key] = props.data[key]
+            } else {
+                if (props.fields[key].type === 'string') {
+                    newFormData[key] = ''
+                }
+                if (props.fields[key].type === 'boolean') {
+                    newFormData[key] = true
+                }
+                if (props.fields[key].type === 'number') {
+                    newFormData[key] = 0
+                }
+                if (props.fields[key].type === 'model') {
+                    const model = props.fields[key].model
+                    if (model.type === 'string') {
+                        newFormData[key] = ''
+                    }
+                    if (model.type === 'number') {
+                        newFormData[key] = 0
+                    }
+                    if (model.dataOrigin === 'fetch') {
+                        fetchDataModel(key, model)
+                    }
+                }
+            }
+        })
+    formData.value = newFormData
 }
 
 onMounted(() => {
