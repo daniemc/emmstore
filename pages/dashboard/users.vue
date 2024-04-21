@@ -16,6 +16,16 @@
             u: '/user',
             d: '/user',
         }"
+        :extra-actions="[
+            {
+                action: {
+                    type: 'navigation',
+                    url: '/dashboard/user/:id',
+                },
+                icon: 'bx bxs-user-detail text-md text-primary',
+                text: 'Roles',
+            }
+        ]"
         />
     </div>
 </template>

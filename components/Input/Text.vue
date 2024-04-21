@@ -34,7 +34,3 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue', 'enter'])
 
 </script>
-
-<style lang="scss" scoped>
-
-</style>

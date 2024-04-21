@@ -13,6 +13,7 @@
         :data="dataToShow"
         :allowEdit="allowEdit"
         :allowDelete="allowDelete"
+        :extraActions="extraActions"
         @onEdit="openEditModal"
         @onDelete="openDeleteConfirmation"
         />
@@ -93,6 +94,10 @@ const props = defineProps({
             u: '',
             d: '',
         })
+    },
+    extraActions: {
+        type: Array,
+        default: () => ([]),
     }
 })
 

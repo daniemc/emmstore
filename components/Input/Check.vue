@@ -9,7 +9,7 @@
         :name="name" 
         :id="id"
         :checked="modelValue"
-        @input="(event) => emit('update:modelValue', event.target.checked)"
+        @input="input"
         />
     </label>
 </template>
@@ -33,7 +33,12 @@ const props = defineProps({
         default: ''
     },
 })
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'change'])
+function input(event) {
+    const value = event.target.checked
+    emit('update:modelValue', value)
+    emit('change', value)
+}
 </script>
 
 <style lang="scss" scoped>

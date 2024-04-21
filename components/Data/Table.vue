@@ -32,16 +32,28 @@
                 <td class="border border-gray-300 p-2">
                     <div 
                     v-if="showActionsHeader"
-                    class="flex justify-center gap-4"
+                    class="flex justify-center items-center gap-2"
                     >
+                        
+                        <div
+                        v-for="(action, actionIndex) in extraActions"
+                        class="tooltip"
+                        :data-tip="action.text"
+                        @click="onExtraAction(action.action, item)"
+                        >
+                        <i
+                        :class="action.icon"
+                        >
+                        </i>
+                        </div>
                         <i 
                         v-if="allowEdit"
-                        class="bx bx-pencil text-default"
+                        class="bx bx-pencil text-info"
                         @click="$emit('onEdit', item)"
                         ></i>
                         <i 
                         v-if="allowDelete"
-                        class="bx bx-trash text-red"
+                        class="bx bx-trash text-error"
                         @click="$emit('onDelete', item)"
                         ></i>
                     </div>
@@ -69,13 +81,28 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    extraActions: {
+        type: Array,
+        default: () => ([]),
+    }
 })
 
 const headers = computed(() => {
     return Object.keys(props.fields)
 })
 
-const showActionsHeader = computed(() => props.allowEdit || props.allowDelete)
+const hasExtraActions = computed(() => props.extraActions && props.extraActions.length > 0)
+const showActionsHeader = computed(() => props.allowEdit || props.allowDelete || hasExtraActions)
+
+function onExtraAction(action, item) {
+    if (action.type === 'navigation') {
+        let [ url, param ] = action.url.split(':')
+        if (param) {
+            url = `${url}${item[param]}`
+        }
+        navigateTo(url)
+    }
+}
 
 </script>
 

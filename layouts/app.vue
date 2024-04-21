@@ -65,27 +65,32 @@ function logout() {
 const menu = ref([
     {
         text: 'Usuarios',
-        url: '/users',
+        url: '/dashboard/users',
         show: true,
     },
     {
         text: 'Productos',
-        url: '/products',
+        url: '/dashboard/products',
         show: true,
     },
     {
         text: 'Variantes de Productos',
-        url: '/products_variants',
+        url: '/dashboard/products_variants',
         show: true,
     },
     {
         text: 'Tipos de movimientos',
-        url: '/movements_types',
+        url: '/dashboard/movements_types',
         show: true,
     },
     {
         text: 'Tiendas',
-        url: '/stores',
+        url: '/dashboard/stores',
+        show: true,
+    },
+    {
+        text: 'Vendedores',
+        url: '/dashboard/vendors',
         show: true,
     },
 ])
