@@ -114,7 +114,6 @@ const userRoles = computed(() => {
 })
 
 async function handleUserRole(role, assign) {
-    console.log(role, assign)
     const payload = {
         role_id: role.id,
         user_id: user.value.id,
