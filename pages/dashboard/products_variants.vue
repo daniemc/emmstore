@@ -83,6 +83,18 @@ const fields = {
         editable: true,
         type: 'string'
     },
+    characteristic1: {
+        text: 'Caracteristica 1',
+        create: true,
+        editable: true,
+        type: 'string'
+    },
+    characteristic2: {
+        text: 'Caracteristica 2',
+        create: true,
+        editable: true,
+        type: 'string'
+    },
     active: {
         text: 'Activo',
         create: true,

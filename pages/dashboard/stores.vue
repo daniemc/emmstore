@@ -51,6 +51,12 @@ const fields = {
         editable: true,
         type: 'string'
     },
+    warehouse: {
+        text: 'Es bodega',
+        create: false,
+        editable: true,
+        type: 'boolean'
+    },
     active: {
         text: 'Activa',
         create: true,

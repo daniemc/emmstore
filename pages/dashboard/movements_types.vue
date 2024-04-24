@@ -45,6 +45,12 @@ const fields = {
         editable: true,
         type: 'string'
     },
+    flow: {
+        text: 'Flujo',
+        create: false,
+        editable: false,
+        type: 'string'
+    },
     description: {
         text: 'Descripción',
         create: true,
