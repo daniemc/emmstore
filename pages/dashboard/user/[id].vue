@@ -125,7 +125,7 @@ async function handleUserRole(role, assign) {
         payload
     )
     if (!hasError) {
-        getUserData
+        getUserData()
     }
 }
 

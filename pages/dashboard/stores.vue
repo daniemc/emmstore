@@ -16,6 +16,16 @@
             u: '/stores',
             d: '/stores',
         }"
+        :extra-actions="[
+            {
+                action: {
+                    type: 'navigation',
+                    url: '/dashboard/store/:id',
+                },
+                icon: 'bx bxs-factory text-md text-primary',
+                text: 'Ver Tienda',
+            }
+        ]"
         />
     </div>
 </template>
