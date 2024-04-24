@@ -1,7 +1,9 @@
 <template>
     <button class="btn"
     :class="{
-        'btn-primary': variant === 'primary',
+        'btn-primary': variant === 'primary' || primary,
+        'btn-secondary': variant === 'secondary' || secondary,
+        'btn-accent': variant === 'accent' || accent,
     }"
     >
     <Text v-if="buttonHasTextProp">{{ text }}</Text>
@@ -15,6 +17,18 @@ const props = defineProps({
     variant: {
         type: String,
         default: 'primary'
+    },
+    primary: {
+        type: Boolean,
+        default: false
+    },
+    secondary: {
+        type: Boolean,
+        default: false
+    },
+    accent: {
+        type: Boolean,
+        default: false
     },
     text: {
         type: String,

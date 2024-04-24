@@ -10,7 +10,7 @@
         </label>
       </div> 
       <div class="flex-1 gap-4 px-2 mx-2 cursor-pointer">
-            <Button @click="navigateTo('/')">
+            <Button accent @click="navigateTo('/')">
                 <i class="bx bx-home"></i>
             </Button>
             <Text bold>Panel Administrativo</Text>
