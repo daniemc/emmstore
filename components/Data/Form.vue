@@ -11,6 +11,11 @@
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
+            <InputPassword
+            v-if="fields[header].type === 'password'"
+            :placeholder="`${fields[header].text}`"
+            v-model="formData[header]"
+            />
             <div class="flex" v-if="fields[header].type === 'boolean'">
                 <InputCheck 
                 :placeholder="`${fields[header].text}`"

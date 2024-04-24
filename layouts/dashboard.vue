@@ -9,7 +9,12 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
       </div> 
-      <div @click="navigateTo('/')" class="flex-1 px-2 mx-2 cursor-pointer">Hola, {{ userName }}</div>
+      <div class="flex-1 gap-4 px-2 mx-2 cursor-pointer">
+            <Button @click="navigateTo('/')">
+                <i class="bx bx-home"></i>
+            </Button>
+            <Text bold>Panel Administrativo</Text>
+      </div>
       <div class="flex-none hidden lg:block">
         <ul class="menu menu-horizontal">
           <!-- Navbar menu content here -->
@@ -64,15 +69,42 @@ function logout() {
 
 const menu = computed(() => {
   const isSuperAdmin = AuthStore.userIsSuperAdmin
+  const isAdmin = AuthStore.userIsAdmin
   const items = [
-      {
-          text: 'Dashboard',
-          url: '/dashboard',
-          show: isSuperAdmin,
-      },
-  ]
+    {
+        text: 'Usuarios',
+        url: '/dashboard/users',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
+        text: 'Productos',
+        url: '/dashboard/products',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
+        text: 'Variantes de Productos',
+        url: '/dashboard/products_variants',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
+        text: 'Tipos de movimientos',
+        url: '/dashboard/movements_types',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
+        text: 'Tiendas',
+        url: '/dashboard/stores',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
+        text: 'Vendedores',
+        url: '/dashboard/vendors',
+        show: isSuperAdmin || isAdmin,
+    },
+]
   return items.filter((_) => _.show)
 })
+
 </script>
 
 <style lang="scss" scoped>

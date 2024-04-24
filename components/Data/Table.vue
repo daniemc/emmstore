@@ -89,6 +89,7 @@ const props = defineProps({
 
 const headers = computed(() => {
     return Object.keys(props.fields)
+        .filter((_) => !props.fields[_].hidden)
 })
 
 const hasExtraActions = computed(() => props.extraActions && props.extraActions.length > 0)

@@ -9,6 +9,21 @@ export const useAuthStore = defineStore('Auth', {
         token: () => {
             return JSON.parse(localStorage.getItem('token')) 
         },
+        userRoles: (state) => state.user.roles?.map(
+            (userRole) => (userRole.role.name)
+        ) || [],
+        userIsSuperAdmin() {
+            return this.userRoles.some((_) => _ === 'SuperAdmin')
+        },
+        userIsAdmin() {
+            return this.userRoles.some((_) => _ === 'Admin')
+        },
+        userIsStoreAdmin() {
+            return this.userRoles.some((_) => _ === 'StoreAdmin')
+        },
+        userIsSeller() {
+            return this.userRoles.some((_) => _ === 'StoreSeller')
+        },
     },
     actions: {
         async login(payload) {

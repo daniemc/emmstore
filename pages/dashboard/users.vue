@@ -32,7 +32,7 @@
 
 <script setup>
 definePageMeta({
-    layout: 'app',
+    layout: 'dashboard',
     middleware: 'auth'
 })
 
@@ -103,6 +103,13 @@ const fields = {
         editable: false,
         type: 'string'
     },
+    password: {
+        hidden: true,
+        text: 'Contraseña',
+        create: true,
+        editable: true,
+        type: 'password'
+    }
 }
 </script>
 

@@ -22,7 +22,7 @@
 
 <script setup>
 definePageMeta({
-    layout: 'app',
+    layout: 'dashboard',
     middleware: 'auth'
 })
 
