@@ -13,8 +13,22 @@
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
+            <InputNumber
+            v-if="fields[header].type === 'number'"
+            :id="header"
+            :name="header"
+            :placeholder="`${fields[header].text}`"
+            v-model="formData[header]"
+            />
             <InputPassword
             v-if="fields[header].type === 'password'"
+            :id="header"
+            :name="header"
+            :placeholder="`${fields[header].text}`"
+            v-model="formData[header]"
+            />
+            <InputDate
+            v-if="fields[header].type === 'date'"
             :id="header"
             :name="header"
             :placeholder="`${fields[header].text}`"

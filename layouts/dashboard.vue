@@ -92,6 +92,11 @@ const menu = computed(() => {
         show: isSuperAdmin || isAdmin,
     },
     {
+        text: 'Movimientos',
+        url: '/dashboard/movements',
+        show: isSuperAdmin || isAdmin,
+    },
+    {
         text: 'Tiendas',
         url: '/dashboard/stores',
         show: isSuperAdmin || isAdmin,
