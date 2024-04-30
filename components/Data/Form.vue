@@ -8,16 +8,22 @@
             <Text v-if="editing && fields[header].type !== 'boolean'">{{ fields[header].text }}</Text>
             <InputText 
             v-if="fields[header].type === 'string'"
+            :id="header"
+            :name="header"
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
             <InputPassword
             v-if="fields[header].type === 'password'"
+            :id="header"
+            :name="header"
             :placeholder="`${fields[header].text}`"
             v-model="formData[header]"
             />
             <div class="flex" v-if="fields[header].type === 'boolean'">
                 <InputCheck 
+                :id="header"
+                :name="header"
                 :placeholder="`${fields[header].text}`"
                 v-model="formData[header]"
                 />

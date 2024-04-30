@@ -25,13 +25,22 @@
                     <Text v-if="fields[header].type === 'object'">
                         {{ item[header][fields[header].ObjectKey] }}
                     </Text>
+                    <div v-else-if="fields[header].type === 'list'">
+                        <ul class="list-disc ml-4">
+                            <li v-for="(itemList, index) in item[header]">
+                                {{ itemList[fields[header].list.key] }}
+                            </li>
+                        </ul>
+                    </div>
                     <Text v-else>
                         {{ item[header] }}
                     </Text>
                 </td>
-                <td class="border border-gray-300 p-2">
+                <td 
+                v-if="showActionsHeader"
+                class="border border-gray-300 p-2"
+                >
                     <div 
-                    v-if="showActionsHeader"
                     class="flex justify-center items-center gap-2"
                     >
                         
@@ -93,7 +102,7 @@ const headers = computed(() => {
 })
 
 const hasExtraActions = computed(() => props.extraActions && props.extraActions.length > 0)
-const showActionsHeader = computed(() => props.allowEdit || props.allowDelete || hasExtraActions)
+const showActionsHeader = computed(() => props.allowEdit || props.allowDelete || hasExtraActions.value)
 
 function onExtraAction(action, item) {
     if (action.type === 'navigation') {

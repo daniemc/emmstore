@@ -4,6 +4,8 @@
         'btn-primary': variant === 'primary' || primary,
         'btn-secondary': variant === 'secondary' || secondary,
         'btn-accent': variant === 'accent' || accent,
+        'btn-ghost': variant === 'ghost' || ghost,
+        'btn-square': square,
     }"
     >
     <Text v-if="buttonHasTextProp">{{ text }}</Text>
@@ -27,6 +29,14 @@ const props = defineProps({
         default: false
     },
     accent: {
+        type: Boolean,
+        default: false
+    },
+    ghost: {
+        type: Boolean,
+        default: false
+    },
+    square: {
         type: Boolean,
         default: false
     },

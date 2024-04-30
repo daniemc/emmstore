@@ -22,13 +22,13 @@
             >
                 <Button 
                     v-if="showCloseButton"
-                    variant="secondary"
-                    class="bg-transparent text-black px-0 py-0 absolute right-4 top-4"
-                    text=""
-                    show-icon
-                    icon="bx bx-x"
+                    variant="ghost"
+                    class="absolute right-2 top-2"
+                    square
                     @click="$emit('onClose')"
-                />
+                >
+                    <i class="bx bx-x"></i>
+                </Button>
                 <!-- Modal header -->
                 <div class="flex flex-col">
                     <Text v-if="hasTitle" variant="title">{{ title }}</Text>
